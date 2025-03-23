@@ -1,7 +1,17 @@
+const { Response } = require("node-fetch");
+
 function fetchBooks() {
   // To pass the tests, don't forget to return your fetch!
+  return fetch("https://anapioficeandfire.com/api/books")
+  .then((resp) => resp.json())
+  .then((books) => {renderBooks(books.json);
+    return books;
+  })
+  .catch(err => console.log(err)
+  );
   
 }
+
 
 function renderBooks(books) {
   const main = document.querySelector('main');
